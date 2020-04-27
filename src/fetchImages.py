@@ -7,7 +7,7 @@
 from utils import Crawer
 key_word = 'white cat'
 num = 200
-c = Crawer.Crawer(key_word, num, 'raw_data/imgs')
+c = Crawer.Crawer(key_word, num, 'data/imgs')
 c.loop()
 
 

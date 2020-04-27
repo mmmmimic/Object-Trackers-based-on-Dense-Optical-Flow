@@ -8,8 +8,6 @@ import cv2
 import numpy as np
 import imutils
 
-'''Algorithms based on Dense Optical Flow'''
-
 def localSearch(im1, im2, kernelSize, stride, inertia=None, minScore=0, eroRate=21, 
 dilRate=25, winsize=15, Euclian=False, horiParam=0.8, minSpeed=1, inertialParam=0.5, index=None):
     '''
@@ -141,8 +139,6 @@ def globalSearch(im1, im2, winsize=15, Euclian=False, horiParam=0.8, minSpeed=1)
             pass
     return roi, center
 
-
-'''Algorithms based on Sparse Optical Flow'''
 def sparseLocate(im1, im2, roi, featnumber, feat, kernelSize, minSpeed=1):
     '''
     PARAMETERS
@@ -186,13 +182,13 @@ def sparseLocate(im1, im2, roi, featnumber, feat, kernelSize, minSpeed=1):
 
 class BsLocater(object):
     '''
-    @author: pearww
+    @author: pearlww
     @link: https://github.com/pearlww/perception-finnal
     '''
     def __init__(self, forenum=80):
         super(BsLocater, self).__init__()
         self.forenum = forenum # foreground frames number
-        self.bs = cv2.createBackgroundSubtractorMOG2(detectShadows=False) 
+        self.bs = cv2.createBackgroundSubtractorKNN(detectShadows=False) 
         self.bs.setHistory(forenum)
         self.trainTimes = 0
     

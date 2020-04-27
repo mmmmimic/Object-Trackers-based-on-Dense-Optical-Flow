@@ -301,7 +301,7 @@ class GlobalDenseTracker(Tracker):
         print('The implementation Rate is %0.2f fps'%self.fps)
 
 
-
+# tracker based on Background Subtractor
 class BSTracker(GlobalDenseTracker):
     def __init__(self, path, size, cvt, monsize, thresh, forenum, rec=False):
         super(BSTracker, self).__init__(path, size, cvt, monsize, thresh, sampling=False, rec=rec)

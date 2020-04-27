@@ -17,7 +17,6 @@ class Kalman(object):
         # including x, v_x, a_x, y, v_y, a_y 
         self.X = np.zeros((6,1))
         # The initial uncertainty (6x6).
-        # let's assume a large initial value since at the very first the uncertainty is high
         uc = 500
         self.P = uc*np.eye(6)
         # The external motion (6x1).

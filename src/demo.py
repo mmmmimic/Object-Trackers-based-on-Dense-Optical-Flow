@@ -8,20 +8,20 @@ from utils import Tracker
 import cv2
 
 '''
-GREEN box means "I find a moving object, but I'm not sure it is the target"
-RED box means "I'm sure that this is the target"
-YELLOW box means "I found the target and now it is under occlusion, so this is the position I guess based on the history"
+GREEN box means "Object observed"
+RED box means "Target observed"
+YELLOW box means "Target under occlusion"
 '''
 
-path= 'raw_data/RectifiedImg/right/'
-size = (1024, 729) # unnecessary
-monsize = 20 # the target path under occulusion is predicted based on the previous 20 frames
+path= 'data/imgs'
+size = (1024, 729)
+monsize = 20 # the target path under occulusion is predicted in line with the previous 20 frames
 thresh = [10, 5]
 kernel = (200, 200)
 stride = (30, 30)
 
 def localTrack():
-    sampling = True # if True the fps is much higher, but the video will lose some frames
+    sampling = True
     t = Tracker.LocalDenseTracker(path, None, None, monsize, thresh, kernel, stride, sampling=True, rec=False)
     t.loop(0, Filter=True)
 
