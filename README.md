@@ -1,5 +1,5 @@
 # Object-Trackers-based-on-Dense-Optical-Flow
-## Prerequisite
+## Dependency
 - python == 3.7.4
 - opencv == 3.4.2
 - imutils == 0.5.3
